@@ -1,31 +1,30 @@
-import { allPosts } from '../../../.contentlayer/generated'
-import { notFound } from 'next/navigation'
-import { useMDXComponent } from 'next-contentlayer/hooks'
-import React from 'react'
-import Layout from '../../../components/layout'
-import BlogPost from '../../../components/blogpost'
-
-export const generateStaticParams = async () => 
-  allPosts.map((post) => ({ slug: post._raw.flattenedPath }))
-
-export const generateMetadata = ({ params }: { params: { slug: string } }) => {
-  const post = allPosts.find((post) => post._raw.flattenedPath === params.slug)
-  if (!post) return { title: 'Post Not Found' }
-  return { title: post.title }
-}
+import BlogPostHeader from '@/components/header';
+import { allPosts } from '@/.contentlayer/generated';
+import { notFound } from 'next/navigation';
+import { useMDXComponent } from 'next-contentlayer/hooks';
 
 export default function PostPage({ params }: { params: { slug: string } }) {
-  const post = allPosts.find((post) => post._raw.flattenedPath === params.slug)
-  if (!post) notFound()
+  const post = allPosts.find((post) => post._raw.flattenedPath === params.slug);
+  if (!post) notFound();
 
-  const MDXContent = useMDXComponent(post.body.code)
+  const MDXContent = useMDXComponent(post.body.code);
+
   return (
-    <Layout>
-      <BlogPost
+    <div className="min-h-screen bg-white">
+      <BlogPostHeader 
         title={post.title}
-        date={new Date(post.date).toLocaleDateString()}
-        content={<MDXContent />}
+        date={post.date}
+        author={{
+          name: "shadcn",
+          username: "shadcn",
+          avatar: "/path/to/avatar.jpg" // Update this with the correct path
+        }}
       />
-    </Layout>
-  )
+      <main className="max-w-3xl mx-auto px-4 py-8">
+        <div className="prose prose-sm sm:prose lg:prose-lg xl:prose-xl">
+          <MDXContent />
+        </div>
+      </main>
+    </div>
+  );
 }
