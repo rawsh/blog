@@ -5,26 +5,20 @@ import React from 'react'
 
 export default function Home() {
   return (
-    <div className="container mx-auto py-8 px-4 text-center">
-      <h1 className="text-4xl font-bold mb-8">My Blog</h1>
-      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <div className="max-w-3xl mx-auto grid grid-cols-1 gap-2">
         {allPosts.map((post) => (
-          <Card key={post._id} className="hover:shadow-lg transition-shadow duration-300">
-            <CardHeader>
-              <CardTitle className="text-2xl">{post.title}</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-gray-600 mb-4">Published on {new Date(post.date).toLocaleDateString()}</p>
+          <div className='px-4 py-2 text-xl'>
+            <div>
               <Link 
                 href={post.url} 
-                className="text-blue-600 hover:text-blue-800 transition-colors duration-300"
+                className="text-black-600 hover:text-pink-400 transition-colors duration-100 font-medium"
               >
-                Read more →
+                {post.title}
               </Link>
-            </CardContent>
-          </Card>
+              <span className="text-gray-600 font-extralight"> - {new Date(post.date).toLocaleDateString()}</span>
+            </div>
+          </div>
         ))}
       </div>
-    </div>
   )
 }
