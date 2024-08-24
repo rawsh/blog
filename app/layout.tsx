@@ -1,6 +1,7 @@
 import './globals.css'
 import { Work_Sans } from 'next/font/google'
 import { Providers } from './providers'
+import { Analytics } from '@vercel/analytics/react';
 import React from 'react'
 
 const work = Work_Sans({ subsets: ['latin'] })
@@ -36,6 +37,7 @@ export default function RootLayout({
             </div>
           </footer>
         </Providers>
+        <Analytics />
       </body>
     </html>
   )
