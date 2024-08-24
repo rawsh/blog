@@ -11,6 +11,14 @@ export const metadata = {
   description: 'robert washbourne',
 }
 
+export const viewport = {
+  themeColor: "#FFFFFF",
+  initialScale: 1,
+  width: "device-width",
+  maximumScale: 1,
+  viewportFit: "cover",
+};
+
 export default function RootLayout({
   children,
 }: {
@@ -20,10 +28,10 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${work.className}`}>
         <Providers>
-          <div className="min-h-screen flex">
+          <div className="min-h-screen">
             {/* Main content */}
-            <main className="flex-grow">
-              <div className="container max-w-3xl mx-auto py-8 px-4">
+            <main className="">
+              <div className="container max-w-3xl mx-auto py-8 px-4 overflow-hidden">
                 {/* Mobile header */}
                 <h1 className="text-3xl font-black mb-8 m-4 text-slate-800">raw.sh</h1>
                 {children}
