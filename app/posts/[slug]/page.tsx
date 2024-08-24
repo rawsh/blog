@@ -29,7 +29,7 @@ export default function PostPage({ params }: { params: { slug: string } }) {
         title={post.title}
         date={post.date}
         author={{
-          name: "rawsh",
+          name: "robert washbourne",
           username: "rawsh0",
           avatar: "/image.png" // Update this with the correct path
         }}
