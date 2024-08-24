@@ -70,7 +70,7 @@ module.exports = {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
       },
-      typography: ({ theme }) => ({
+      typography: ({ theme }: {theme: any}) => ({
         pink: {
           css: {
             '--tw-prose-body': theme('colors.pink[800]'),
