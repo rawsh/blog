@@ -13,7 +13,7 @@ const BlogPostHeader = ({ title, date, author }) => {
         </Link>
       </div>
       <h1 className="text-4xl font-extralight text-slate-600 mb-4">{title}</h1>
-      <div className="mb-8 text-slate-600 text-md font-extralight">
+      <div className="mb-8 text-slate-600 text-md font-light">
         Published on {new Date(date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
       </div>
       <div className="flex items-center">

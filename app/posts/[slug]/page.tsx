@@ -3,6 +3,20 @@ import { allPosts } from '@/.contentlayer/generated';
 import { notFound } from 'next/navigation';
 import { useMDXComponent } from 'next-contentlayer/hooks';
 
+import Image from "next/image"
+import { Code } from "bright"
+
+Code.theme = {
+  dark: "github-dark",
+  light: "github-light",
+  lightSelector: "html.light",
+}
+
+const components = {
+  Image,
+  pre: Code,
+}
+
 export default function PostPage({ params }: { params: { slug: string } }) {
   const post = allPosts.find((post) => post._raw.flattenedPath === params.slug);
   if (!post) notFound();
@@ -21,8 +35,8 @@ export default function PostPage({ params }: { params: { slug: string } }) {
         }}
       />
       <main className="px-4 py-8">
-        <div className="prose prose-sm sm:prose lg:prose-lg xl:prose-xl prose-slate prose-headings:font-thin prose-headings:text-slate-800 prose-img:rounded-xl font-light">
-          <MDXContent />
+        <div className="prose prose-sm sm:prose lg:prose-lg xl:prose-xl prose-slate prose-headings:font-extralight prose-headings:text-slate-800 prose-img:rounded-xl font-light">
+          <MDXContent components={components}/>
         </div>
       </main>
     </div>

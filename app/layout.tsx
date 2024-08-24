@@ -2,14 +2,12 @@ import './globals.css'
 import { Work_Sans } from 'next/font/google'
 import { Providers } from './providers'
 import React from 'react'
-import Link from 'next/link'
-import { ArrowLeft } from 'lucide-react'
 
-const inter = Work_Sans({ subsets: ['latin'] })
+const work = Work_Sans({ subsets: ['latin'] })
 
 export const metadata = {
-  title: 'My Blog',
-  description: 'A simple blog using Next.js, Contentlayer, and MDX',
+  title: 'raw.sh',
+  description: 'robert washbourne',
 }
 
 export default function RootLayout({
@@ -19,7 +17,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.className}`}>
+      <body className={`${work.className}`}>
         <Providers>
           <div className="min-h-screen flex">
             {/* Main content */}
@@ -34,7 +32,7 @@ export default function RootLayout({
 
           <footer className="bg-white shadow-sm mt-8">
             <div className="container max-w-3xl mx-auto py-4 px-4 text-left text-gray-600 font-normal">
-              © 2024 My Blog. All rights reserved.
+              © 2024 rawsh. All rights reserved.
             </div>
           </footer>
         </Providers>
