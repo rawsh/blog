@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { ArrowLeft } from 'lucide-react';
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
-const BlogPostHeader = ({ title, date, author }) => {
+const BlogPostHeader = ({ title, date, author }: {title: any, date: any, author: any}) => {
   return (
     <div className="max-w-3xl mx-auto px-4 pb-4">
       <div className="mb-16">

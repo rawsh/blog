@@ -1,7 +1,7 @@
 import React from 'react';
 import { CalendarIcon, ClockIcon } from 'lucide-react';
 
-const BlogPost = ({ title, date, readingTime, content, author }) => {
+const BlogPost = ({ title, date, readingTime, content, author }: { title: any, date: any, readingTime: any, content: any, author: any }) => {
   return (
     <div className="max-w-3xl mx-auto px-4 py-8">
       <h1 className="text-4xl font-bold mb-4 text-gray-900">{title}</h1>

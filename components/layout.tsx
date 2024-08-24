@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 
-export default function Layout({ children }) {
+export default function Layout({ children }: {children: any}) {
   return (
     <div className="min-h-screen flex flex-col bg-white text-gray-900">
       <header className="bg-white border-b border-gray-200 py-4">
