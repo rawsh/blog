@@ -33,12 +33,15 @@ fi
 # Clear or create the output file
 > "$output_file"
 
-# Get list of tracked files and untracked files not ignored by git
-files=$(git ls-files && git ls-files --others --exclude-standard)
+# Get list of tracked files and untracked files not ignored by git, excluding .png files
+files=$(git ls-files | grep -v '\.png$')
+files+=$'\n'$(git ls-files --others --exclude-standard | grep -v '\.png$')
 
 # Process each file
 echo "$files" | while IFS= read -r file; do
-    process_file "$file"
+    if [ -n "$file" ]; then
+        process_file "$file"
+    fi
 done
 
 echo "File processing complete. Output saved to $output_file"

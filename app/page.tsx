@@ -6,8 +6,8 @@ import React from 'react'
 export default function Home() {
   return (
       <div className="grid grid-cols-1 gap-2">
-        {allPosts.map((post) => (
-          <div className='px-4 py-2 text-xl'>
+        {allPosts.map((post, idx) => (
+          <div className='px-4 py-2 text-xl' key={idx}>
             <div>
               <Link 
                 href={post.url} 

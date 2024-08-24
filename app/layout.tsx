@@ -3,12 +3,28 @@ import { Work_Sans } from 'next/font/google'
 import { Providers } from './providers'
 import { Analytics } from '@vercel/analytics/react';
 import React from 'react'
+import { Metadata } from 'next'
 
 const work = Work_Sans({ subsets: ['latin'] })
 
-export const metadata = {
+export const metadata: Metadata = {
+  metadataBase: new URL('https://raw.sh'),
   title: 'raw.sh',
-  description: 'robert washbourne',
+  description: 'robert washbourne\'s ✨ website ✨',
+  openGraph: {
+    title: 'raw.sh',
+    description: 'robert washbourne\'s ✨ website ✨',
+    url: 'https://raw.sh',
+    siteName: 'raw.sh',
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary',
+    title: 'raw.sh',
+    description: 'robert washbourne\'s ✨ website ✨',
+    creator: '@rawsh0',
+  },
 }
 
 export const viewport = {
@@ -29,10 +45,8 @@ export default function RootLayout({
       <body className={`${work.className}`}>
         <Providers>
           <div className="min-h-screen">
-            {/* Main content */}
             <main className="">
               <div className="container max-w-3xl mx-auto py-8 px-4 overflow-hidden">
-                {/* Mobile header */}
                 <h1 className="text-3xl font-black mb-8 m-4 text-slate-800">raw.sh</h1>
                 {children}
               </div>

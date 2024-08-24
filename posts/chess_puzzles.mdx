@@ -1,24 +1,35 @@
 ---
 title: Teaching chat models to solve chess puzzles
 date: 2024-08-24
+description: Explore how LLMs can be optimized to solve chess puzzles, comparing performance between completion and chat models.
+image: /chess_puzzle_accuracy.png
 ---
 
-Turns out GPT completion models are pretty good at chess, with gpt-3.5-turbo-instruct playing around 1800 elo [^1]. However, chat models typically struggle. 
-It's been shown that combining fine-tuning and prompt optimization can be powerful [^2]. To see if the performance of chat models could be brought up to a level competetive with completion models, I ran several experiments. I tried automatically optimizing the LLM chess puzzle solving prompt with tuned few shot examples, and in light of OpenAI's 2 million tokens of free gpt-4o-mini finetuning per day, I also tried finetuning gpt-4o-mini on the optimized LLM chain of thought outputs.
+Turns out GPT completion models are pretty good at chess, with gpt-3.5-turbo-instruct playing around 1800 elo[^1]. However, chat models typically struggle. 
+It's been shown that combining fine-tuning and prompt optimization can be powerful[^2]. To see if the performance of chat models could be brought up to a level competitive with completion models, I ran several experiments. 
+
+I tried automatically optimizing the LLM chess puzzle solving prompt with tuned few shot examples using DSPy. Additionally, in light of OpenAI's 2 million tokens of free finetuning per day, I also tried finetuning gpt-4o-mini on the optimized LLM chain of thought outputs from gpt-4o.
+
+## Glossary
+- `Finetuning:` The process of further training a pre-trained language model on a specific dataset to improve its performance on a particular task.
+- `Prompt optimization:` The technique of refining and improving the input prompts given to an AI model to elicit better and more accurate responses.
+- `Few shot prompting:` A method where a language model is given a small number of examples (usually 2-5) within the prompt to help it understand and perform a specific task.
+- `Chain of thought (CoT):` An approach that encourages AI models to break down complex problems into step-by-step reasoning, often by including intermediate steps in prompts or training data.
+- `DSPy:` Very good™️ framework for algorithmically optimizing LM prompts and weights
 
 ## Contents
 
 ## Dataset
 
-To create a dataset to evaluate the models on, I used puzzles from the lichess database, which provides a dataset of 4 million chess puzzles with metadata. For each puzzle, I called the API to get the full list of moves in PGN format, with one example for each move of the puzzle.
+To create a dataset to evaluate the models on, I used puzzles from the lichess database[^3], which provides a dataset of 4 million chess puzzles with metadata. For each puzzle, I called the API to get the full list of moves in PGN format, with one example for each move of the puzzle.
 
 ```
 PGN: 1. e3 e5 2. Ne2 d5 3. Ng3 Nf6 4. Nh5 Bd6 5. d3 Bg4 6.
 Answer: ?
 ```
-solution (hint: knight move) [^3]
+solution (hint: knight move)[^4]
 
-The dataset is available on [huggingface](https://huggingface.co/datasets/rawsh/pgnpuzzles).
+The processed dataset is available on [huggingface](https://huggingface.co/datasets/rawsh/pgnpuzzles).
 
 ## Can completion models solve chess puzzles?
 
@@ -35,7 +46,12 @@ GPT completion models provide a strong baseline, with babbage and davinci gettin
 Without showing the LLM any examples, chat model performance is pretty poor, with gpt-4o-mini only solving 17.4% of puzzles, and gpt-4o solving 28.44%. 
 
 ### DSPy Program
-Using DSPy, few-shot examples are compiled to create an optimized prompt. This approach alone improves gpt-4o-mini's accuracy to 25.99%, a 50% increase over the zero-shot baseline. When combined with a self-correction step for illegal moves and 2 retries, the accuracy further improves to 31.72%.
+ > DSPy: The framework for programming—not prompting—foundation models
+
+To optimize our program with DSPy, we can express it using an LLM signature and module. This simple signature will be optimized into high-quality prompts with few shot examples. 
+
+This approach alone improves gpt-4o-mini's accuracy to 25.99%, a 50% increase over the zero-shot baseline. When combined with a
+ self-correction step for illegal moves and 2 retries, the accuracy further improves to 31.72%.
 
 ```python
 class ChessSolver(dspy.Signature):
@@ -92,7 +108,7 @@ def validate_pgn_move(pgn_board, san_move):
         return False, "Move is not legal in the current position"
 ```
 
-By optimizing over few shot examples with DSPy, gpt-4o-mini performance is boosted to 31.72%. Using the optimized few shot chain of thought prompt with gpt-4o brings some impressive gains, bringing the accuracy up to 63.88%.
+By optimizing over few shot examples with DSPy, gpt-4o-mini performance is boosted to 31.72%. Using the newly optimized few shot chain of thought prompt with gpt-4o brings some impressive gains, bringing the accuracy up to 63.88%.
 
 ### Compiling
 
@@ -128,7 +144,7 @@ A few million tokens later...
 
 ### Compiled prompt
 
-DSPy optimized chain of thought prompt with five few shot examples:
+DSPy optimized chain of thought prompt with 5 few shot examples:
 ```json
 {
   "generate_move": {
@@ -170,6 +186,8 @@ Interestingly, the rationale in the first example has a bug, and repeats the PGN
 
 ## DSPy Compiled Results
 
+![dspy llm model accuracy on chess puzzle dataset](/chess_puzzle_accuracy_dspy.png)
+
 ### Chat models + DSPy
 | Model | Accuracy |
 |-------|----------|
@@ -184,7 +202,7 @@ Interestingly, the rationale in the first example has a bug, and repeats the PGN
 
 ### Constructing good examples
 
-By running the best pipeline we have available (gpt-4o with the compiled prompt), we can construct fine tuning examples with the chain of thought processes from the strong model. 
+By running the best pipeline we have available (gpt-4o with the compiled prompt), we can construct fine tuning examples with the chain of thought processes from a strong model. 
 
 ### gpt-4o-mini
 
@@ -233,7 +251,12 @@ I asked Claude for some takeaways:
 
 First use DSPy with a cheap model to get a really good prompt, then use the optimized prompt with a strong model to create a finetuning example dataset. Finetuning on this dataset can make the performance of the cheap model competetive with the expensive teacher model.
 
+## Next steps
+
+I'm working on a lichess bot that you can play against to try out the optimized LLM programs. Stay tuned 😎
+
 [^1]: https://x.com/GrantSlatton/status/1703913578036904431
 [^2]: [Fine-Tuning and Prompt Optimization:
 Two Great Steps that Work Better Together](https://arxiv.org/pdf/2407.10930)
-[^3]: Nxf6+
+[^3]: https://database.lichess.org/#puzzles
+[^4]: Nxf6+
