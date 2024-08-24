@@ -15,13 +15,13 @@ export default function PostPage({ params }: { params: { slug: string } }) {
         title={post.title}
         date={post.date}
         author={{
-          name: "shadcn",
-          username: "shadcn",
-          avatar: "/path/to/avatar.jpg" // Update this with the correct path
+          name: "rawsh",
+          username: "rawsh0",
+          avatar: "/image.png" // Update this with the correct path
         }}
       />
-      <main className="max-w-3xl mx-auto px-4 py-8">
-        <div className="prose prose-sm sm:prose lg:prose-lg xl:prose-xl prose-pink prose-headings:font-extralight prose-img:rounded-xl font-light">
+      <main className="px-4 py-8">
+        <div className="prose prose-sm sm:prose lg:prose-lg xl:prose-xl prose-slate prose-headings:font-thin prose-headings:text-slate-800 prose-img:rounded-xl font-light">
           <MDXContent />
         </div>
       </main>

@@ -1,9 +1,11 @@
 import './globals.css'
-import { Inter } from 'next/font/google'
+import { Work_Sans } from 'next/font/google'
 import { Providers } from './providers'
 import React from 'react'
+import Link from 'next/link'
+import { ArrowLeft } from 'lucide-react'
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Work_Sans({ subsets: ['latin'] })
 
 export const metadata = {
   title: 'My Blog',
@@ -19,12 +21,17 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${inter.className}`}>
         <Providers>
-          <main className="min-h-screen">
-            <div className="container mx-auto py-8 px-4">
-              <h1 className="text-3xl font-thin mb-8 mt-4 max-w-3xl mx-auto px-4">raw.sh</h1>
-              {children}
-            </div>
-          </main>
+          <div className="min-h-screen flex">
+            {/* Main content */}
+            <main className="flex-grow">
+              <div className="container max-w-3xl mx-auto py-8 px-4">
+                {/* Mobile header */}
+                <h1 className="text-3xl font-black mb-8 m-4 text-slate-800">raw.sh</h1>
+                {children}
+              </div>
+            </main>
+          </div>
+
           <footer className="bg-white shadow-sm mt-8">
             <div className="container max-w-3xl mx-auto py-4 px-4 text-left text-gray-600 font-normal">
               © 2024 My Blog. All rights reserved.

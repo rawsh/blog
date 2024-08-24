@@ -7,13 +7,13 @@ const BlogPostHeader = ({ title, date, author }) => {
   return (
     <div className="max-w-3xl mx-auto px-4 pb-4">
       <div className="mb-16">
-        <Link href="/" className="inline-flex items-center text-md text-gray-600 hover:text-gray-900 transition-colors">
+        <Link href="/" className="inline-flex items-center text-md text-slate-600 hover:text-slate-900 transition-colors">
           <ArrowLeft className="mr-2 h-4 w-4" />
           See all posts
         </Link>
-i      </div>
-      <h1 className="text-3xl font-light text-gray-900 mb-6">{title}</h1>
-      <div className="mb-4 text-gray-500 text-md font-semibold">
+      </div>
+      <h1 className="text-4xl font-extralight text-slate-600 mb-4">{title}</h1>
+      <div className="mb-8 text-slate-600 text-md font-extralight">
         Published on {new Date(date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
       </div>
       <div className="flex items-center">
