@@ -64,7 +64,7 @@ export default function PostPage({ params }: { params: { slug: string } }) {
         author={{
           name: "robert washbourne",
           username: "rawsh0",
-          avatar: "/image.png" // Update this with the correct path
+          avatar: "/author-image.png" // Update this with the correct path
         }}
       />
       <main className="px-4 py-8">
