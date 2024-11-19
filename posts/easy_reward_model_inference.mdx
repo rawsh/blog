@@ -108,7 +108,7 @@ The `allow_concurrent_inputs` setting prevents Modal from starting multiple serv
 
 Since my cloud GPU bill this month is kind of ridiculous, I decided to evaluate using a small random 100 question subset of TruthfulQA, a multiple choice benchmark for LLMs. 
 
-One way to benchmark the reward model on multiple choice data by checking the score for each possible answer to the question[^6]. Here are the results:
+One way to benchmark the reward model on multiple choice data is to check the score for each possible answer to the question[^6]. Here are the results:
 
 ```
 Average rank of correct answer: 2.10
@@ -135,7 +135,7 @@ I get the following zero-shot accuracy with `Llama-3.1-8B-Instruct`:
 Using the reward model with Best-of-N-Sampling shows a 20.7% increase in accuracy from `n=1` to `n=16`, with performance plateauing with more than 16 generations.
 
 
-[^1]: Reward models are typically run with SequenceClassification architectures since both tasks map sequences to a single value through a final linear layer.
+[^1]: Reward models often use architectures similar to `SequenceClassification`, but output a single scalar rather than multiple class outputs.
 [^2]: vLLM supports [Qwen2.5-Math-RM-72B](https://huggingface.co/Qwen/Qwen2.5-Math-RM-72B/) (see the [model implementation](https://github.com/vllm-project/vllm/blob/main/vllm/model_executor/models/qwen2_rm.py)), but reward model API is still on the roadmap.
 [^3]: https://www.mixedbread.ai/blog/dynamic-batching
 [^4]: Not sponsored, I just really like the development workflow. To deploy this on your own machine you can swap out the [Modal](https://modal.com/) code for a local Flask server.
