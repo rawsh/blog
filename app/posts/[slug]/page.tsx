@@ -68,7 +68,7 @@ export default function PostPage({ params }: { params: { slug: string } }) {
         }}
       />
       <main className="px-4 py-8">
-        <div className="mx-auto prose prose-xs lg:prose-lg xl:prose-xl prose-slate prose-headings:font-light prose-headings:text-slate-800 prose-img:rounded-xl">
+        <div className="prose prose-xs lg:prose-lg xl:prose-xl prose-slate prose-headings:font-light prose-headings:text-slate-800 prose-img:rounded-xl">
           <MDXContent components={components}/>
         </div>
       </main>
