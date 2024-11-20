@@ -4,11 +4,11 @@ import Callback from './callback';
 
 const BlogPostHeader = ({ title, date, author }: {title: any, date: any, author: any}) => {
   return (
-    <div className="max-w-3xl mx-auto px-4 pb-4">
+    <div className="max-w-3xl mx-auto px-2 pb-4">
       <div className="mb-16">
         <Callback />
       </div>
-      <h1 className="text-4xl font-extralight text-slate-600 mb-4">{title}</h1>
+      <h1 className="text-4xl font-extralight text-slate-600 mb-4 text-balance">{title}</h1>
       <div className="mb-8 text-slate-600 text-md font-light">
         Published on {new Date(date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
       </div>

@@ -46,14 +46,14 @@ export default function RootLayout({
         <Providers>
           <div className="min-h-screen">
             <main className="">
-              <div className="container max-w-3xl mx-auto py-8 px-4 overflow-hidden">
+              <div className="container max-w-3xl mx-auto pt-8 px-4 overflow-hidden">
                 <h1 className="text-3xl font-black mb-8 m-4 text-slate-800">raw.sh</h1>
                 {children}
               </div>
             </main>
           </div>
 
-          <footer className="mt-8">
+          <footer>
             <div className="container max-w-3xl mx-auto py-4 px-4 text-left text-gray-600 font-normal px-8">
               © 2024 Robert Washbourne. All rights reserved.
             </div>
