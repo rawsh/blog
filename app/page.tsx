@@ -18,7 +18,7 @@ export default function Home() {
             >
               {post.title}
             </Link>
-            <span className="text-gray-600 font-extralight"> - {new Date(post.date).toLocaleDateString()}</span>
+            <span className="text-gray-600 font-extralight whitespace-nowrap"> - {new Date(post.date).toLocaleDateString()}</span>
           </div>
         </div>
       ))}
