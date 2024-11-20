@@ -1,16 +1,12 @@
 import React from 'react';
-import Link from 'next/link';
-import { ArrowLeft } from 'lucide-react';
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import Callback from './callback';
 
 const BlogPostHeader = ({ title, date, author }: {title: any, date: any, author: any}) => {
   return (
     <div className="max-w-3xl mx-auto px-4 pb-4">
       <div className="mb-16">
-        <Link href="/" className="inline-flex items-center text-md text-slate-600 hover:text-slate-900 transition-colors">
-          <ArrowLeft className="mr-2 h-4 w-4" />
-          See all posts
-        </Link>
+        <Callback />
       </div>
       <h1 className="text-4xl font-extralight text-slate-600 mb-4">{title}</h1>
       <div className="mb-8 text-slate-600 text-md font-light">
