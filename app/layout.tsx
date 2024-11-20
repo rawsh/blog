@@ -55,7 +55,7 @@ export default function RootLayout({
 
           <footer className="mt-8">
             <div className="container max-w-3xl mx-auto py-4 px-4 text-left text-gray-600 font-normal px-8">
-              © 2024 rawsh. All rights reserved.
+              © 2024 Robert Washbourne. All rights reserved.
             </div>
           </footer>
         </Providers>
