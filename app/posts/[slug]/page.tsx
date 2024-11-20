@@ -67,7 +67,7 @@ export default function PostPage({ params }: { params: { slug: string } }) {
           avatar: "/author-image.png" // Update this with the correct path
         }}
       />
-      <main className="px-4 py-8">
+      <main className="px-2 py-8">
         <div className="prose prose-xs lg:prose-lg xl:prose-xl prose-slate prose-headings:font-light prose-headings:text-slate-800 prose-img:rounded-xl">
           <MDXContent components={components}/>
         </div>
