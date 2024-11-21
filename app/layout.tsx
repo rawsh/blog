@@ -47,7 +47,7 @@ export default function RootLayout({
           <div className="min-h-screen">
             <main className="">
               <div className="container max-w-3xl mx-auto pt-8 px-4 overflow-hidden">
-                <h1 className="text-3xl font-black mb-8 m-4 text-slate-800">raw.sh</h1>
+                <h1 className="text-3xl font-black mb-8 m-2 text-slate-800">raw.sh</h1>
                 {children}
               </div>
             </main>
