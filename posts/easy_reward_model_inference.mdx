@@ -122,7 +122,7 @@ The reward model scores the correct answer the highest 53% of the time. Next we 
 
 ## Best-of-N-Sampling
 
-Now we can test LLM + reward model verifier, a super simple way to add more test time compute. Best-of-N-Sampling doesn't add much latency (we can sample and score hundreds of completions in parallel with batching) and is super easy to implement[^7].
+Now we can test LLM + reward model verifier, a super simple way to add more test time compute. Inference time scaling with Best-of-N-Sampling doesn't add much latency (we can sample and score hundreds of completions in parallel with batching) and is super easy to implement[^7].
 
 I get the following zero-shot accuracy with `Llama-3.1-8B-Instruct`:
 
