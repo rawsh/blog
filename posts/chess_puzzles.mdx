@@ -1,7 +1,7 @@
 ---
 title: Teaching chat models to solve chess puzzles
 date: 2024-08-24
-description: Explore how LLMs can be optimized to solve chess puzzles with DSPy and finetuning, comparing performance between completion and chat models.
+description: Explore how LLMs can be optimized to solve chess puzzles with the combination of DSPy automatic prompt engineering and finetuning, reaching completion model accuracy with chat models.
 image: /chess_puzzle_accuracy.png
 ---
 
@@ -21,7 +21,7 @@ I tried automatically optimizing the LLM chess puzzle solving prompt with tuned 
 
 ## Dataset
 
-To create a dataset to evaluate the models on, I used puzzles from the lichess database[^3], which provides a dataset of 4 million chess puzzles with metadata. For each puzzle, I called the API to get the full list of moves in PGN format, with one example for each move of the puzzle.
+To create a dataset to evaluate the models on, I used puzzles from the lichess database[^3], which provides a dataset of 4 million chess puzzles with metadata. For each chess puzzle, I called the API to get the full list of moves in PGN format, with one example for each move of the puzzle.
 
 ```
 PGN: 1. e3 e5 2. Ne2 d5 3. Ng3 Nf6 4. Nh5 Bd6 5. d3 Bg4 6.
@@ -111,6 +111,8 @@ def validate_pgn_move(pgn_board, san_move):
 By optimizing over few shot examples with DSPy, gpt-4o-mini performance is boosted to 31.72%. Using the newly optimized few shot chain of thought prompt with gpt-4o brings some impressive gains, bringing the accuracy up to 63.88%.
 
 ### Compiling
+
+Using the DSPy MIPROv2 optimizer:
 
 ```python
 # Define hyperparameters:
