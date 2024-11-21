@@ -1,13 +1,13 @@
 ---
 title: Batched reward model inference and Best-of-N sampling 
 date: 2024-11-19
-description: A practical guide to implementing high-throughput reward model inference with dynamic batching.​​​​​
+description: A practical guide to high-throughput reward model inference using dynamic batching. Includes Python implementation and benchmarks showing 20% accuracy gains with Best-of-N sampling.
 image: /best_of_n_accuracy.png
 ---
 
 Reward models have been a key part of reinforcement learning on top of LLMs, used broadly in techniques like RLHF and as LLM-as-a-judge critics in evals. They have also been used in the data preparation phase of preference optimization methods like SimPO, where a reward model was used to create the preference data used to train models like `princeton-nlp/gemma-2-9b-it-SimPO`.
 
-I recently had some trouble figuring out how to run high throughput reward model inference. Offline, you can just collect everything you need to score in advance and go through all of your data in batches. But for a lot of use cases, such as for search methods like tree search or MCTS, this is hard to do efficiently. Unfortunately, easy to set up inference servers like vllm and llama.cpp don't support sequence classification models[^1] out of the box (yet[^2])
+I recently had some trouble figuring out how to run high throughput reward model inference. Offline, you can just collect everything you need to score in advance and go through all of your data in batches. But for a lot of use cases, such as for search methods like tree search or MCTS, this is hard to do efficiently. Unfortunately, easy to set up inference servers like vLLM and llama.cpp don't support sequence classification[^1] / reward models out of the box (yet[^2])
 
 ## Dynamic batching with `batched`
 
