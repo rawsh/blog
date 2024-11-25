@@ -15,7 +15,8 @@ Code.theme = {
 }
 
 const components = {
-  img: (props: any) => <Image {...props} alt={props.alt || ''} />,
+  // img: (props: any) => <Image {...props} alt={props.alt || ''} />,
+  Image,
   pre: Code,
 }
 
