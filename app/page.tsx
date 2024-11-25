@@ -28,9 +28,9 @@ export default function Home() {
           </div>
           <div className="mb-2 flex flex-wrap gap-2">
             <div className="inline-block">interests:</div>
-            <div className="inline-block"><div>•</div><div className="ml-1">small model reasoning</div></div>
-            <div className="inline-block"><div>•</div><div className="ml-1">retrieval systems</div></div>
-            <div className="inline-block"><div>•</div><div className="ml-1">evaluations</div></div>
+            <div className="inline-block"><div className="inline-block">•</div><div className="inline-block ml-1">small model reasoning</div></div>
+            <div className="inline-block"><div className="inline-block">•</div><div className="inline-block ml-1">retrieval systems</div></div>
+            <div className="inline-block"><div className="inline-block">•</div><div className="inline-block ml-1">evaluations</div></div>
           </div>
           <div className="flex flex-wrap gap-4">
             <Link href="https://x.com/rawsh0" className="text-slate-600 hover:text-pink-400 transition-colors duration-100 font-medium"><Twitter className="inline" size={18} /></Link>
