@@ -7,13 +7,15 @@
     "dev": "contentlayer dev & next dev",
     "build": "contentlayer build & next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "scan": "next dev && npx react-scan@latest localhost:3000"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "@mdx-js/loader": "^3.0.1",
+    "@million/lint": "^1.0.12",
     "@next/mdx": "^14.2.6",
     "@opentelemetry/api": "^1.4.0",
     "@radix-ui/react-avatar": "^1.1.0",

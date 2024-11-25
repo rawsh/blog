@@ -1,3 +1,4 @@
+const MillionLint = require('@million/lint');
 const { withContentlayer } = require('next-contentlayer')
 
 
@@ -18,4 +19,7 @@ const nextConfig = {
   };
   
 
-module.exports = withContentlayer(nextConfig)
+module.exports = MillionLint.next({
+  enabled: true,
+  rsc: true
+})(withContentlayer(nextConfig))
