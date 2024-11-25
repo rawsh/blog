@@ -9,7 +9,7 @@ const work = Work_Sans({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://raw.sh'),
-  title: 'raw.sh',
+  title: 'Robert Washbourne | raw.sh',
   description: 'robert washbourne\'s ✨ website ✨',
   openGraph: {
     title: 'raw.sh',
