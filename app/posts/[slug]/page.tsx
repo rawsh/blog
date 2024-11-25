@@ -59,7 +59,7 @@ export default function PostPage({ params }: { params: { slug: string } }) {
 
   return (
     <div className="min-h-screen bg-white">
-      <BlogPostHeader 
+      <BlogPostHeader
         title={post.title}
         date={post.date}
         author={{
