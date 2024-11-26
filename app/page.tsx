@@ -5,7 +5,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Twitter, Linkedin, Github, Mail } from 'lucide-react';
 
 export default function Home() {
-  const sortedPosts = [...allPosts].sort((a, b) => 
+  const sortedPosts = [...allPosts].sort((a, b) =>
     new Date(b.date).getTime() - new Date(a.date).getTime()
   )
 
@@ -23,14 +23,14 @@ export default function Home() {
           </div>
         </div>
         <div className="text-slate-600 mb-6">
-          <div className="text-xl mb-2">
+          <div className="text-xl mb-4 leading-6">
             software engineer and researcher focused on applied AI<br/>
           </div>
-          <div className="mb-4 flex flex-wrap gap-2">
-            <div className="inline-block">interests:</div>
-            <div className="inline-block"><div className="inline-block">•</div><div className="inline-block ml-1">small model reasoning</div></div>
-            <div className="inline-block"><div className="inline-block">•</div><div className="inline-block ml-1">retrieval systems</div></div>
-            <div className="inline-block"><div className="inline-block">•</div><div className="inline-block ml-1">evaluations</div></div>
+          <div className="mb-4 flex flex-wrap gap-2 leading-none text-gray-600 font-light">
+            <div className="inline-block text-bold">interests:</div>
+            <div className="inline-block"><div className="inline-block leading-none">•</div><div className="inline-block ml-1 leading-none">small model reasoning</div></div>
+            <div className="inline-block"><div className="inline-block leading-none">•</div><div className="inline-block ml-1">retrieval systems</div></div>
+            <div className="inline-block"><div className="inline-block leading-none">•</div><div className="inline-block ml-1">evaluations</div></div>
           </div>
           <div className="flex flex-wrap gap-4">
             <Link href="https://x.com/rawsh0" className="text-slate-600 hover:text-pink-400 transition-colors duration-100 font-medium"><Twitter className="inline" size={18} /></Link>
@@ -45,9 +45,9 @@ export default function Home() {
       <main className="grid grid-cols-1 gap-2">
         {sortedPosts.map((post, idx) => (
           <div className="px-2 py-2 text-xl" key={idx}>
-            <div className="text-balance">
-              <Link 
-                href={post.url} 
+            <div className="text-balance leading-6">
+              <Link
+                href={post.url}
                 className="text-slate-600 hover:text-pink-400 transition-colors duration-100 font-medium"
               >
                 {post.title}
