@@ -27,7 +27,7 @@ export default function Home() {
             software engineer and researcher focused on applied AI<br/>
           </div>
           <div className="mb-4 flex flex-wrap gap-2 leading-none text-gray-600 font-light">
-            <div className="inline-block text-bold">interests:</div>
+            <div className="inline-block">interests:</div>
             <div className="inline-block"><div className="inline-block leading-none">•</div><div className="inline-block ml-1 leading-none">small model reasoning</div></div>
             <div className="inline-block"><div className="inline-block leading-none">•</div><div className="inline-block ml-1">retrieval systems</div></div>
             <div className="inline-block"><div className="inline-block leading-none">•</div><div className="inline-block ml-1">evaluations</div></div>
