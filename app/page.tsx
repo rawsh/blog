@@ -26,7 +26,7 @@ export default function Home() {
           <div className="text-xl mb-2">
             software engineer and researcher focused on applied AI<br/>
           </div>
-          <div className="mb-2 flex flex-wrap gap-2">
+          <div className="mb-4 flex flex-wrap gap-2">
             <div className="inline-block">interests:</div>
             <div className="inline-block"><div className="inline-block">•</div><div className="inline-block ml-1">small model reasoning</div></div>
             <div className="inline-block"><div className="inline-block">•</div><div className="inline-block ml-1">retrieval systems</div></div>
