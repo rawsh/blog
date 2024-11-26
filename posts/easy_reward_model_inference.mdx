@@ -1,5 +1,5 @@
 ---
-title: Batched reward model inference and Best-of-N sampling 
+title: Batched reward model inference and Best-of-N sampling
 date: 2024-11-19
 description: Building a reward model API with dynamic batching, with complete Python implementation. Demonstrates 20% accuracy gains using Best-of-N sampling for inference-time scaling.
 image: /best_of_n_accuracy.png
@@ -11,7 +11,7 @@ I recently had some trouble figuring out how to run high throughput reward model
 
 ## Dynamic batching with `batched`
 
-Thankfully, Mixedbread has a great generic dynamic batching library that makes it really easy to inference reward models[^3]. 
+Thankfully, Mixedbread has a great generic dynamic batching library that makes it really easy to inference reward models[^3].
 
 Here's how we can host an endpoint on Modal[^4]. First, let's add some helper functions and setup the image:
 
@@ -37,11 +37,11 @@ with image.imports():
             raise ValueError("Messages must contain at least a user and assistant message")
         if not all(isinstance(m, dict) and 'role' in m and 'content' in m for m in messages):
             raise ValueError("Each message must have 'role' and 'content' fields")
-            
+
     class RewardModelHelper:
         def __init__(self, model):
             self.model = model
-            
+
         @inference.dynamically(batch_size=8, timeout_ms=100.0)
         def score_batch(self, features: dict[str, torch.Tensor]) -> torch.Tensor:
             with torch.no_grad():
@@ -106,7 +106,7 @@ The `allow_concurrent_inputs` setting prevents Modal from starting multiple serv
 
 ## Evaluating the reward model
 
-Since my cloud GPU bill this month is kind of ridiculous, I decided to evaluate using a small random 100 question subset of TruthfulQA, a multiple choice benchmark for LLMs. 
+Since my cloud GPU bill this month is kind of ridiculous, I decided to evaluate using a small random 100 question subset of TruthfulQA, a multiple choice benchmark for LLMs.
 
 One way to benchmark the reward model on multiple choice data is to check the score for each possible answer to the question[^6]. Here are the results:
 
@@ -127,12 +127,12 @@ Now we can test LLM + reward model verifier, a super simple way to add more test
 I get the following zero-shot accuracy with `Llama-3.1-8B-Instruct`:
 
 | # completions | 1 | 2 | 4 | 8 | 16 | 32 | 64 |
-|----------|---|---|---|---|----|----|----| 
+|----------|---|---|---|---|----|----|----|
 | accuracy (%)    | 58| 63| 64| 63| 70 | 67 | 67 |
 
-note: log scale
-
 ![best of n results](/best_of_n_accuracy.png)
+
+note: log scale
 
 Using the reward model with Best-of-N-Sampling shows a 20.7% increase in accuracy from `n=1` to `n=16`, with performance plateauing with more than 16 generations.
 
