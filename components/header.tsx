@@ -4,8 +4,8 @@ import Callback from './callback';
 
 const BlogPostHeader = ({ title, date, author }: {title: any, date: any, author: any}) => {
   return (
-    <div className="max-w-3xl mx-auto px-2 pb-4">
-      <div className="mb-16">
+    <div className="max-w-3xl mx-auto px-2 py-4">
+      <div className="mb-12">
         <Callback />
       </div>
       <h1 className="text-4xl font-extralight text-slate-600 mb-4 text-balance">{title}</h1>
