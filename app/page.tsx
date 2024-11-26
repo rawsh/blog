@@ -24,7 +24,7 @@ export default function Home() {
         </div>
         <div className="text-slate-600 mb-6">
           <div className="text-xl mb-4 leading-6">
-            software engineer and researcher focused on applied AI<br/>
+            software engineer focusing on applied AI<br/>
           </div>
           <div className="mb-4 flex flex-wrap gap-2 leading-none text-gray-600 font-light">
             <div className="inline-block">interests:</div>
