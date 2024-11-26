@@ -11,7 +11,7 @@ export default function Home() {
 
   return (
     <div className="max-w-3xl mx-auto py-4">
-      <header className="mb-8 px-2">
+      <header className="mb-12 px-2">
         <div className="flex items-center pb-4">
           <Avatar className="h-12 w-12 mr-4">
             <AvatarImage src="/author-image.png" alt="robert washbourne" />
