@@ -23,7 +23,7 @@ export default function Home() {
           </div>
         </div>
         <div className="text-slate-600 mb-6">
-          <div className="text-xl mb-1">
+          <div className="text-xl mb-2">
             software engineer and researcher focused on applied AI<br/>
           </div>
           <div className="mb-2 flex flex-wrap gap-2">
