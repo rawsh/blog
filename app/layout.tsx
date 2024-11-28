@@ -45,25 +45,31 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${work.className}`}>
-        <Providers>
-          <div className="min-h-screen">
-            <main className="">
-              <div className="container max-w-3xl mx-auto pt-8 px-4 overflow-hidden">
-                <h1 className="text-3xl font-black mb-8 m-2 text-slate-800">raw.sh</h1>
-                {children}
-              </div>
-            </main>
-          </div>
-
-          <footer>
-            <div className="container max-w-3xl mx-auto py-4 px-4 text-left text-gray-600 font-normal px-8">
-              © 2024 Robert Washbourne. All rights reserved. 
-              <Link href="https://x.com/rawsh0" className="text-slate-600 hover:text-pink-400 transition-colors duration-100 font-medium">RSS Feed <Rss className="inline" size={18} /></Link>
+        <div className="min-h-screen">
+          <main>
+            <div className="container max-w-3xl mx-auto pt-8 px-4 overflow-hidden">
+              <h1 className="text-3xl font-black mb-8 m-2 text-slate-800">raw.sh</h1>
+              {children}
             </div>
-          </footer>
-        </Providers>
+          </main>
+        </div>
+
+        <footer>
+          <div className="container max-w-3xl mx-auto py-4 px-4">
+            <div className="flex justify-between items-center text-gray-600 font-normal">
+              <div>© 2024 Robert Washbourne. All rights reserved.</div>
+              <Link 
+                href="https://raw.sh/feed.xml" 
+                className="inline-flex items-center hover:text-pink-400 transition-colors duration-100 font-medium"
+              >
+                <span>Subscribe with RSS</span>
+                <Rss className="ml-2" size={18} />
+              </Link>
+            </div>
+          </div>
+        </footer>
         <Analytics />
       </body>
     </html>
-  )
+  );
 }
