@@ -4,6 +4,8 @@ import { Providers } from './providers'
 import { Analytics } from '@vercel/analytics/react';
 import React from 'react'
 import { Metadata } from 'next'
+import Link from 'next/link'
+import { Rss } from 'lucide-react';
 
 const work = Work_Sans({ subsets: ['latin'] })
 
@@ -55,7 +57,8 @@ export default function RootLayout({
 
           <footer>
             <div className="container max-w-3xl mx-auto py-4 px-4 text-left text-gray-600 font-normal px-8">
-              © 2024 Robert Washbourne. All rights reserved.
+              © 2024 Robert Washbourne. All rights reserved. 
+              <Link href="https://x.com/rawsh0" className="text-slate-600 hover:text-pink-400 transition-colors duration-100 font-medium">RSS Feed <Rss className="inline" size={18} /></Link>
             </div>
           </footer>
         </Providers>
