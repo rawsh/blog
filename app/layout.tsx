@@ -60,10 +60,10 @@ export default function RootLayout({
               <div className="flex-2 text-balance">© 2024 Robert Washbourne. All rights reserved.</div>
               <Link 
                 href="https://raw.sh/feed.xml" 
-                className="inline-flex items-center hover:text-pink-400 transition-colors duration-100 font-medium"
+                className="inline-flex gap-2 items-center hover:text-pink-400 transition-colors duration-100 font-medium"
               >
-                <span className="flex-1">Subscribe with RSS</span>
-                <Rss className="ml-2" size={18} />
+                <span className="">Subscribe with RSS</span>
+                <Rss className="" size={18} />
               </Link>
             </div>
           </div>
