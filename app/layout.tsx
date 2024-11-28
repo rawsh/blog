@@ -63,7 +63,7 @@ export default function RootLayout({
                 className="inline-flex items-center hover:text-pink-400 transition-colors duration-100 font-medium"
               >
                 <span className="flex-1">Subscribe with RSS</span>
-                <Rss className="ml-4" size={18} />
+                <Rss className="ml-2" size={18} />
               </Link>
             </div>
           </div>
