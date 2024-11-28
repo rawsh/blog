@@ -62,8 +62,8 @@ export default function RootLayout({
                 href="https://raw.sh/feed.xml" 
                 className="inline-flex flex-[0] gap-4 items-center hover:text-pink-400 transition-colors duration-100 font-medium"
               >
-                <span className="flex-[0]">Subscribe with RSS</span>
-                <Rss className="flex-1" size={18} />
+                <span className="flex-1">Subscribe with RSS</span>
+                <Rss className="flex-[0]" size={18} />
               </Link>
             </div>
           </div>
