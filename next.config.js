@@ -6,6 +6,7 @@ const { withContentlayer } = require('next-contentlayer')
 const nextConfig = {
     async rewrites() {
       return [
+        { source: '/feed.xml', destination: '/_next/static/feed.xml' },
         {
             source: '/rawbot',
             destination: 'https://lichess.org/@/rawbot/playing',
