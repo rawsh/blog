@@ -50,9 +50,6 @@ Without showing the LLM any examples, chat model performance is pretty poor, wit
 
 To optimize our program with DSPy, we can express it using an LLM signature and module. This simple signature will be optimized into high-quality prompts with few shot examples. 
 
-This approach alone improves gpt-4o-mini's accuracy to 25.99%, a 50% increase over the zero-shot baseline. When combined with a
- self-correction step for illegal moves and 2 retries, the accuracy further improves to 31.72%.
-
 ```python
 class ChessSolver(dspy.Signature):
     """Given a series of chess moves in Portable Game Notation (PGN) format, your task is to determine and return the correct next move in Standard Algebraic Notation (SAN) format."""
@@ -108,7 +105,9 @@ def validate_pgn_move(pgn_board, san_move):
         return False, "Move is not legal in the current position"
 ```
 
-By optimizing over few shot examples with DSPy, gpt-4o-mini performance is boosted to 31.72%. Using the newly optimized few shot chain of thought prompt with gpt-4o brings some impressive gains, bringing the accuracy up to 63.88%.
+By optimizing over few shot examples with DSPy, gpt-4o-mini performance is boosted from 17.4% to 25.99%, a 50% increase. When combined with a self-correction step for illegal moves and 2 retries, the accuracy further improves to 31.72%. 
+
+This is pretty cheap to run with gpt4o-mini, and the performance of a prompt compiled with a small model usually transfers well to a larger model in the same family. Using the newly optimized few shot chain of thought prompt with gpt-4o brings some impressive gains, bringing the accuracy up to 63.88%.
 
 ### Compiling
 
