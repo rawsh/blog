@@ -73,7 +73,7 @@ export default function PostPage({ params }: { params: { slug: string } }) {
         <div className="prose prose-xs lg:prose-lg xl:prose-xl prose-slate prose-headings:font-light prose-headings:text-slate-800 prose-img:rounded-xl">
           <MDXContent components={components}/>
         </div>
-        <div  className="mt-12 mb-4">
+        <div  className="mt-12 mb-12">
           <Callback />
         </div>
       </main>
