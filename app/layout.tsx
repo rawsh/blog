@@ -57,10 +57,10 @@ export default function RootLayout({
         <footer>
           <div className="container max-w-3xl mx-auto py-4 px-4">
             <div className="flex justify-between items-center text-gray-600 font-normal">
-              <div className="flex-2 text-balance">© 2024 Robert Washbourne. All rights reserved.</div>
+{/*               <div className="flex-2 text-balance">© 2024 Robert Washbourne. All rights reserved.</div> */}
               <Link 
                 href="https://raw.sh/feed.xml" 
-                className="inline-flex flex-[0] gap-4 items-center hover:text-pink-400 transition-colors duration-100 font-medium"
+                className="inline-flex flex-[1] gap-4 items-center hover:text-pink-400 transition-colors duration-100 font-medium"
               >
                 <span className="flex-1">Subscribe with RSS</span>
                 <Rss className="" size={18} />
